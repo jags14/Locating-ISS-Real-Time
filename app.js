@@ -5,7 +5,15 @@ mapISS();
             const issData = await getISS();
 
             // Use Leaflet js functions to load the map.
-            const map = L.map('mapId').setView([issData.lat, issData.long], 13);
+            const map = L.map('mapId').setView([issData.lat, issData.long], 2);
+                
+                // Adding custom Icon
+            const issIcon = L.icon({
+                iconUrl: 'iss200.png',
+                iconSize: [50, 32],
+                iconAnchor: [25, 16],
+                
+            });
 
             // You will need to use openstreetmap API.
 
@@ -20,8 +28,9 @@ mapISS();
             }).addTo(map);
 
             L.marker([issData.lat, issData.long]).addTo(map)
-                .bindPopup('Hey look! <br> There is ISS !!')
-                .openPopup();
+               // .bindPopup('Hey look! <br> There is ISS !!')
+               // .openPopup();
+                // removing pop-up.
         }
        
        
